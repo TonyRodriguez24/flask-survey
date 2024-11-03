@@ -11,6 +11,10 @@ class Question:
         self.choices = choices
         self.allow_text = allow_text
 
+    def __str__(self):
+            return f"{self.question}"
+
+
 
 class Survey:
     """Questionnaire."""
