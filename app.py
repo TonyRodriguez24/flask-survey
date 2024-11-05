@@ -25,6 +25,7 @@ def home():
 def start_survey():
    # we initialize the response in the session
    session["responses"] = []
+   #setting session equal to an empty array
    return redirect(url_for("questions", id = 0))
 
 
@@ -32,7 +33,6 @@ def start_survey():
 def questions(id):
    survey = surveys['satisfaction']
    responses = session.get("responses", [])
-   
 
    if id != len(responses):
       flash("Trying to access invalid question", "error")
@@ -40,8 +40,6 @@ def questions(id):
    
    if id >= len(survey.questions):
       return redirect(url_for("thank_you"))
-
-   
 
    question = survey.questions[id]
 
